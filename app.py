@@ -12,4 +12,4 @@ def home():
 # This block ensures the application runs when executed directly
 if __name__ == '__main__':
     # Use 0.0.0.0 to listen on all public IPs, necessary for Docker
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=80)
