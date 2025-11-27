@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flaskeritto - System Online</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --neon-yellow: #fbff00;
+            --dark-bg: #111003;
+            --mid-gray: #3a241a;
+            --pulse-duration: 2s;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% 120%, var(--mid-gray) 10%, var(--dark-bg) 70%, var(--dark-bg) 100%);
+            color: var(--neon-yellow);
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px 60px;
+            border-radius: 12px;
+            border: 2px solid var(--neon-yellow);
+            box-shadow: 0 0 30px rgba(255, 234, 0, 0.6);
+            text-align: center;
+            max-width: 500px;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--neon-yellow);
+        }
+
+        .status-text {
+            color: #00ff00;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* SMALLER floating Python logo */
+        .flask-logo {
+            width: 140px;
+            height: auto;
+            margin: 10px auto 20px;
+            animation: float 4s ease-in-out infinite;
+            display: block;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-6px) rotate(2deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        .status-indicator {
+            width: 15px;
+            height: 15px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            margin: 15px auto 0;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            animation: pulse var(--pulse-duration) infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+        }
+
+        .data-stream {
+            width: 100%;
+            height: 8px;
+            /* slightly smaller */
+            background: var(--mid-gray);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .data-stream::before {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--neon-yellow), transparent);
+            position: absolute;
+            animation: stream 1.5s linear infinite;
+        }
+
+        @keyframes stream {
+            0% {
+                left: -50%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Flaskeritto 💋</h1>
+        <p class="status-text">System Status: Online</p>
+
+        <!-- Python Logo -->
+        <img class="flask-logo" src="https://www.python.org/static/community_logos/python-logo.png" alt="Python Logo">
+
+        <p>This service is running inside a Python container.</p>
+
+        <div class="status-indicator"></div>
+        <div class="data-stream"></div>
+    </div>
+</body>
+
+</html>

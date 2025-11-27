@@ -14,8 +14,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code and templates
-COPY app.py ./
-COPY templates/ templates/
+COPY . ./
 
 # Expose the port the Flask app will listen on
 EXPOSE ${PORT}
